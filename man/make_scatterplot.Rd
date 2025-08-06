@@ -47,8 +47,15 @@ is a purple diamond, whereas the other SNPs are colored according to
 their LD with the lead SNP.
 }
 \examples{
-# The data.frame `merged` comes from the example of `add_label()`.
-# The data.frame `color` comes from the example of `assign_color()`.
+# Select the lead SNP
+in_fn_1 = system.file('extdata', 'gwas.tsv', package = 'locuscomparer')
+d1 = read_metal(in_fn_1, marker_col = 'rsid', pval_col = 'pval')
+in_fn_2 = system.file('extdata', 'gwas.tsv', package = 'locuscomparer')
+d2 = read_metal(in_fn_2, marker_col = 'rsid', pval_col = 'pval')
+merged = merge(d1, d2, by = "rsid", suffixes = c("1", "2"), all = FALSE)
+merged = add_label(merged, 'rs9349379')
+ld <- retrieve_LD('6', 'rs9349379', 'AFR')
+color = assign_color(rsid = merged$rsid, snp = 'rs9349379', ld)
 snp = 'rs9349379'
 shape = ifelse(merged$rsid == snp, 23, 21)
 names(shape) = merged$rsid
