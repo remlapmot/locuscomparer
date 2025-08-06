@@ -69,7 +69,6 @@ get_position=function(x, genome = c('hg19','hg38')){
 #' @param population (string) One of the 5 popuations from 1000 Genomes: 'AFR', 'AMR', 'EAS', 'EUR', and 'SAS'.
 #' @examples
 #' retrieve_LD('6', 'rs9349379', 'AFR')
-#'
 #' @export
 retrieve_LD = function(chr,snp,population){
     utils::data(config)
