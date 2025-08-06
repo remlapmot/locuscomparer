@@ -24,5 +24,4 @@ input SNP.
 }
 \examples{
 retrieve_LD('6', 'rs9349379', 'AFR')
-
 }

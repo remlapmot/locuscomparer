@@ -49,7 +49,13 @@ Generated a combined plot with two locuszoom plots and a locuscompare
 plot. Each locuszoom plot represent an association study.
 }
 \examples{
-# The data.frame `merged` comes from the example of `add_label()`.
-# the data.frame `ld` comes from the example for `retrieve_LD()`.
+# Select the lead SNP
+in_fn_1 = system.file('extdata', 'gwas.tsv', package = 'locuscomparer')
+d1 = read_metal(in_fn_1, marker_col = 'rsid', pval_col = 'pval')
+in_fn_2 = system.file('extdata', 'gwas.tsv', package = 'locuscomparer')
+d2 = read_metal(in_fn_2, marker_col = 'rsid', pval_col = 'pval')
+merged = merge(d1, d2, by = "rsid", suffixes = c("1", "2"), all = FALSE)
+merged = add_label(merged, 'rs9349379')
+ld <- retrieve_LD('6', 'rs9349379', 'AFR')
 make_combined_plot(merged, 'GWAS', 'eQTL', ld, chr)
 }
