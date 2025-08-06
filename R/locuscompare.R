@@ -39,7 +39,7 @@ read_metal=function(in_fn,marker_col='rsid',pval_col='pval'){
 #' @examples
 #' in_fn = system.file('extdata', 'gwas.tsv', package = 'locuscomparer')
 #' d1 = read_metal(in_fn, marker_col = 'rsid', pval_col = 'pval')
-#' get_position(d1, genome)
+#' get_position(d1)
 #' @export
 get_position=function(x, genome = c('hg19','hg38')){
 
