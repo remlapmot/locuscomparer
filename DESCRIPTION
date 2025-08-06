@@ -12,6 +12,8 @@ Description: locuscomparer is the standalone version of the LocusCompare
     visualization of colocalization of summary statistics from pairs of
     association datasets (e.g. GWAS and eQTL).
 License: GPL-3
+Depends: 
+    R (>= 2.10)
 Imports: 
     cowplot (>= 0.6.1),
     DBI (>= 1.0.0),
