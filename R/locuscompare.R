@@ -14,7 +14,7 @@ read_metal=function(in_fn,marker_col='rsid',pval_col='pval'){
 
     if (is.character(in_fn)){
 
-        d = read.table(in_fn, header = TRUE, stringsAsFactors = FALSE)
+        d = utils::read.table(in_fn, header = TRUE, stringsAsFactors = FALSE)
         colnames(d)[which(colnames(d) == marker_col)] = 'rsid'
         colnames(d)[which(colnames(d) == pval_col)] = 'pval'
 
@@ -43,7 +43,7 @@ read_metal=function(in_fn,marker_col='rsid',pval_col='pval'){
 #' @export
 get_position=function(x, genome = c('hg19','hg38')){
 
-    data(config)
+    utils::data(config)
     on.exit(rm(config))
 
     conn = RMySQL::dbConnect(RMySQL::MySQL(),"locuscompare",config$b,config$c,config$a)
@@ -72,7 +72,7 @@ get_position=function(x, genome = c('hg19','hg38')){
 #'
 #' @export
 retrieve_LD = function(chr,snp,population){
-    data(config)
+    utils::data(config)
     on.exit(rm(config))
 
     conn = RMySQL::dbConnect(RMySQL::MySQL(),"locuscompare",config$b,config$c,config$a)
