@@ -322,6 +322,7 @@ make_locuszoom=function(metal,title,chr,color,shape,size,ylab_linebreak=FALSE){
 #' @param lz_ylab_linebreak (boolean, optional) Whether to break the line of y-axis of the locuszoom plot.
 #' If FALSE, the y-axis title and '-log10(p-value)'. will be on the same line. Default: FALSE.
 #' @examples
+#' \dontrun{
 #' # Select the lead SNP
 #' in_fn_1 = system.file('extdata', 'gwas.tsv', package = 'locuscomparer')
 #' d1 = read_metal(in_fn_1, marker_col = 'rsid', pval_col = 'pval')
@@ -331,6 +332,7 @@ make_locuszoom=function(metal,title,chr,color,shape,size,ylab_linebreak=FALSE){
 #' merged = add_label(merged, 'rs9349379')
 #' ld <- retrieve_LD('6', 'rs9349379', 'AFR')
 #' make_combined_plot(merged, 'GWAS', 'eQTL', ld, chr)
+#' }
 #' @export
 make_combined_plot = function (merged, title1, title2, ld, chr, snp = NULL,
                                combine = TRUE, legend = TRUE,

@@ -49,6 +49,7 @@ Generated a combined plot with two locuszoom plots and a locuscompare
 plot. Each locuszoom plot represent an association study.
 }
 \examples{
+\dontrun{
 # Select the lead SNP
 in_fn_1 = system.file('extdata', 'gwas.tsv', package = 'locuscomparer')
 d1 = read_metal(in_fn_1, marker_col = 'rsid', pval_col = 'pval')
@@ -58,4 +59,5 @@ merged = merge(d1, d2, by = "rsid", suffixes = c("1", "2"), all = FALSE)
 merged = add_label(merged, 'rs9349379')
 ld <- retrieve_LD('6', 'rs9349379', 'AFR')
 make_combined_plot(merged, 'GWAS', 'eQTL', ld, chr)
+}
 }
