@@ -172,6 +172,7 @@ assign_color=function(rsid,snp,ld){
 #' such data.frame.
 #' @param snp (character vector) A vector of SNP rsIDs. If only labeling one SNP,
 #' this can also be a single string.
+#' @export
 #' @examples
 #' # The data.frame merged comes from the example for `get_lead_snp()`.
 #' merged = add_label(merged, 'rs9349379')
