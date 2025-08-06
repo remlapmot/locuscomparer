@@ -272,15 +272,25 @@ make_scatterplot = function (merged, title1, title2, color, shape, size, legend 
 #' @param ylab_linebreak (boolean, optional) Whether to break the line of y-axis. If FALSE, the y-axis title and '-log10(p-value)'
 #' will be on the same line. Default: FALSE.
 #' @examples
-#' # The data.frame `d1` comes from the example of `read_metal()`,
-#' # The data.frame `color` comes from the example of `assign_color()`.
+#' \dontrun{
+#' # Select the lead SNP
+#' in_fn_1 = system.file('extdata', 'gwas.tsv', package = 'locuscomparer')
+#' d1 = read_metal(in_fn_1, marker_col = 'rsid', pval_col = 'pval')
+#' in_fn_2 = system.file('extdata', 'gwas.tsv', package = 'locuscomparer')
+#' d2 = read_metal(in_fn_2, marker_col = 'rsid', pval_col = 'pval')
+#' merged = merge(d1, d2, by = "rsid", suffixes = c("1", "2"), all = FALSE)
+#' merged = add_label(merged, 'rs9349379')
+#' ld <- retrieve_LD('6', 'rs9349379', 'AFR')
+#' color = assign_color(rsid = merged$rsid, snp = 'rs9349379', ld)
 #' snp = 'rs9349379'
 #' shape = ifelse(merged$rsid == snp, 23, 21)
 #' names(shape) = merged$rsid
 #' size = ifelse(merged$rsid == snp, 3, 2)
 #' names(size) = merged$rsid
 #' chr = '6'
+#' d1 = get_position(d1)
 #' make_locuszoom(d1, title = 'GWAS', chr, color, shape, size)
+#' }
 #' @export
 make_locuszoom=function(metal,title,chr,color,shape,size,ylab_linebreak=FALSE){
 
